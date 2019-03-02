@@ -282,7 +282,7 @@ static rt_err_t _rym_do_fin(struct rym_ctx *ctx)
     _rym_putchar(ctx, RYM_CODE_C);
 
     code = _rym_read_code(ctx, RYM_WAIT_PKG_TICK);
-    if (code != RYM_CODE_SOH)
+    if (code != RYM_CODE_SOH && code != RYM_CODE_STX)
         return -RYM_ERR_CODE;
 
     i = _rym_read_data(ctx, _RYM_SOH_PKG_SZ-1);
